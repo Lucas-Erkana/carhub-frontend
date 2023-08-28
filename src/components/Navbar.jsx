@@ -14,7 +14,6 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const router = useRouter();
 
-
   useEffect(() => {
     if (typeof localStorage !== "undefined") {
       const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -64,6 +63,12 @@ const Navbar = () => {
                 className="block text-white text-lg hover:underline"
               >
                 Add Car
+              </Link>
+              <Link
+                href="/Rentals"
+                className="text-white text-lg hover:underline"
+              >
+                Rentals
               </Link>
             </>
           )}
@@ -142,6 +147,12 @@ const Navbar = () => {
                 className="block text-white text-3xl hover:underline"
               >
                 Add Car
+              </Link>
+              <Link
+                href="/Rentals"
+                className="block text-white text-3xl hover:underline"
+              >
+                Rentals
               </Link>
             </>
           )}

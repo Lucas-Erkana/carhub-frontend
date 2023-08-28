@@ -52,11 +52,11 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action) => {
-      state.user = action.payload;
+      state.users = action.payload;
       state.isLoading = false;
     },
     clearUser: (state) => {
-      state.user = null;
+      state.users = null;
       localStorage.removeItem('user');
       state.isLoading = false;
     },

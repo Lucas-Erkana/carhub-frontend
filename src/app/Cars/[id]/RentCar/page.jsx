@@ -7,6 +7,7 @@ import { createRental } from "@/src//redux/features/rentalsSlice";
 
 const RentCarPage = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const { id } = useParams(); 
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -24,7 +25,7 @@ const RentCarPage = () => {
     };
 
     dispatch(createRental(rentalData));
-    
+    router.push("/Rentals");
   };
 
   return (
