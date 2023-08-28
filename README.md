@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-<h1 align='center'> Carhub 🤘 </h1>
+<h1 align='center'> Carhub 🚗 🏢 </h1>
 
 
 <!-- TABLE OF CONTENTS -->
@@ -200,6 +200,6 @@ I hope this helps! Let me know if you have any further questions or concerns.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](https://github.com/Lucas-Erkana/carhub-frontend/blob/main/LICENSE.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
