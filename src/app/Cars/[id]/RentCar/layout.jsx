@@ -4,8 +4,10 @@ import Footer from "@/src/components/Footer";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="">
+      <body>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -9,6 +9,7 @@ const AddCarPage = () => {
     color: '',
     plate_no: '',
     price: '',
+    user_id:'1',
   });
   const dispatch = useDispatch();
 
@@ -22,6 +23,7 @@ const AddCarPage = () => {
       color: '',
       plate_no: '',
       price: '',
+      user_id:'1',
     });
   };
 

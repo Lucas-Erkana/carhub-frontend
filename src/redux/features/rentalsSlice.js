@@ -1,6 +1,7 @@
 // rentalsSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import url from './url';
 
 // Define the initial state
 const initialState = {
@@ -11,17 +12,17 @@ const initialState = {
 
 // Define async thunks
 export const fetchRentals = createAsyncThunk('rentals/fetchRentals', async () => {
-  const response = await axios.get('/api/v1/rentals'); // Adjust the endpoint if needed
+  const response = await axios.get(`${url}/api/v1/rentals`); // Adjust the endpoint if needed
   return response.data;
 });
 
 export const createRental = createAsyncThunk('rentals/createRental', async (rentalData) => {
-  const response = await axios.post('/api/v1/rentals', { rental: rentalData });
+  const response = await axios.post(`${url}/api/v1/rentals`, { rental: rentalData });
   return response.data;
 });
 
 export const deleteRental = createAsyncThunk('rentals/deleteRental', async (rentalId) => {
-  await axios.delete(`/api/v1/rentals/${rentalId}`);
+  await axios.delete(`${url}/api/v1/rentals/${rentalId}`);
   return rentalId;
 });
 

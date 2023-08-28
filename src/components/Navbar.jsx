@@ -57,14 +57,6 @@ const Navbar = () => {
           <Link href="/Cars" className="text-white text-lg hover:underline">
             Cars
           </Link>
-          {userRole === "user" && (
-            <Link
-              href="/RentCar"
-              className="block text-white text-lg hover:underline"
-            >
-              Rent Car
-            </Link>
-          )}
           {userRole === "admin" && (
             <>
               <Link
@@ -72,12 +64,6 @@ const Navbar = () => {
                 className="block text-white text-lg hover:underline"
               >
                 Add Car
-              </Link>
-              <Link
-                href="/RentCar"
-                className="block text-white text-lg hover:underline"
-              >
-                Rent Car
               </Link>
             </>
           )}
@@ -149,14 +135,6 @@ const Navbar = () => {
           >
             Cars
           </Link>
-          {userRole === "user" && (
-            <Link
-              href="/RentCar"
-              className="block text-white text-3xl hover:underline"
-            >
-              Rent Car
-            </Link>
-          )}
           {userRole === "admin" && (
             <>
               <Link
@@ -164,12 +142,6 @@ const Navbar = () => {
                 className="block text-white text-3xl hover:underline"
               >
                 Add Car
-              </Link>
-              <Link
-                href="/RentCar"
-                className="block text-white text-3xl hover:underline"
-              >
-                Rent Car
               </Link>
             </>
           )}
