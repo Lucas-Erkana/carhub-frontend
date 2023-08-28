@@ -41,8 +41,12 @@ export const Register = () => {
         };
 
         dispatch(createUser(userData));
+        
 
-        localStorage.setItem("user", JSON.stringify(userData));
+        if (typeof window !== 'undefined') {
+          localStorage.setItem("user", JSON.stringify(userData));
+        }
+        
         dispatch(setUser(userData));
         // console.log(userData)
         console.log("User registered successfully");

@@ -2,20 +2,23 @@
 
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useRouter } from "next/navigation"; 
-import { createRental } from "@/src//redux/features/rentalsSlice"; 
+import { useParams, useRouter } from "next/navigation";
+import { createRental } from "@/src//redux/features/rentalsSlice";
 
 const RentCarPage = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const { id } = useParams(); 
+  const { id } = useParams();
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
   const handleRentCar = () => {
+    let user_id;
 
-    const user = localStorage.getItem("user");
-    const user_id = JSON.parse(user).id;
+    if (typeof window !== 'undefined') {
+      const user = localStorage.getItem("user");
+      user_id = JSON.parse(user).id;
+    }
 
     const rentalData = {
       start_date: startDate,

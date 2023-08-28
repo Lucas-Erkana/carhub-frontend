@@ -28,7 +28,9 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(clearUser());
-    localStorage.removeItem("user");
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem("user");
+    }    
     router.push("/Splash");
   };
 
