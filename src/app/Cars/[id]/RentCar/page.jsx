@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useRouter } from "next/navigation";
-import { createRental } from "@/src//redux/features/rentalsSlice";
+import { useParams, useRouter } from "next/router";
+import { createRental } from "@/src/redux/features/rentalsSlice";
 
 const RentCarPage = () => {
   const dispatch = useDispatch();
@@ -11,24 +11,32 @@ const RentCarPage = () => {
   const { id } = useParams();
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [userId, setUserId] = useState(null);
 
-  const handleRentCar = () => {
-    let user_id;
-
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       const user = localStorage.getItem("user");
-      user_id = JSON.parse(user).id;
+      const parsedUser = JSON.parse(user);
+      if (parsedUser) {
+        setUserId(parsedUser.id);
+      }
     }
+  }, []);
 
-    const rentalData = {
-      start_date: startDate,
-      end_date: endDate,
-      car_id: id,
-      user_id,
-    };
+  const handleRentCar = () => {
+    if (userId) {
+      const rentalData = {
+        start_date: startDate,
+        end_date: endDate,
+        car_id: id,
+        user_id: userId,
+      };
 
-    dispatch(createRental(rentalData));
-    router.push("/Rentals");
+      dispatch(createRental(rentalData));
+      router.push("/Rentals");
+    } else {
+      // Handle the case when user data is not available
+    }
   };
 
   return (
@@ -72,3 +80,4 @@ const RentCarPage = () => {
 };
 
 export default RentCarPage;
+
