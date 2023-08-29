@@ -50,7 +50,7 @@ The Full Stack CarHub Project: Redefining Car Rentals! Seamlessly built using Ru
 
 ## Live Demo
 
-To see this project's live demo, please click [here](https://carhub-lr.vercel.app/).
+To see this project's live demo, please click [here](https://carhub-luri.vercel.app/).
 
 ## 🛠 Built With <a name="built-with"></a>
 
