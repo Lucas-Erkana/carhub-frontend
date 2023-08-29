@@ -57,9 +57,7 @@ const usersSlice = createSlice({
     },
     clearUser: (state) => {
       state.users = null;
-      if (typeof window !== 'undefined') {
-        localStorage.removeItem('user');
-      }
+      localStorage.removeItem('user');
       state.isLoading = false;
     },
   },

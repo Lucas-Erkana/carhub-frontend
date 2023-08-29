@@ -1,16 +1,19 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCars, deleteCar } from "../../redux/features/carsSlice";
 
 const CarsPage = () => {
+  const [userRole, setUserRole] = useState(null);
   const dispatch = useDispatch();
   const { cars, status } = useSelector((state) => state.cars);
-  const user = localStorage.getItem("user");
-
+  
   useEffect(() => {
-    // Fetch cars when the component mounts
+    if (typeof localStorage !== "undefined") {
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+      setUserRole(storedUser ? storedUser.role : null);
+    }
     dispatch(fetchCars());
   }, [dispatch]);
 
@@ -45,7 +48,7 @@ const CarsPage = () => {
                     <span>View More</span>
                   </div>
                 </Link>
-                {user && JSON.parse(user).role === "admin" && 
+                {userRole === "admin" && 
                 <button
                   onClick={() => handleDeleteCar(car.id)}
                   className="inline-flex items-center bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600 mr-2 cursor-pointer"
