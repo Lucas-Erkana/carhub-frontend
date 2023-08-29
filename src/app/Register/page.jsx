@@ -14,7 +14,7 @@ export const Register = () => {
   const [password, setPassword] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [role, setRole] = useState("user");
+  const [role] = useState('user');
 
   const router = useRouter();
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ export const Register = () => {
           address,
           email,
           password,
-          role: role,
+          role: 'user',
           city_id: selectedCity,
         };
 
@@ -44,7 +44,7 @@ export const Register = () => {
 
         localStorage.setItem("user", JSON.stringify(userData));
         dispatch(setUser(userData));
-        // console.log(userData)
+        console.log(userData)
         console.log("User registered successfully");
       } catch (error) {
         console.error("Error registering user:", error);
@@ -96,14 +96,14 @@ export const Register = () => {
           className="w-full my-4  border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <select
+        {/* <select
           className="w-full my-4  border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
           value={role}
           onChange={(e) => setRole(e.target.value)}
         >
           <option value="user">User</option>
           <option value="admin">Admin</option>
-        </select>
+        </select> */}
         <select
           className="w-full my-4  border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
           value={selectedCity}
