@@ -72,7 +72,11 @@ const usersSlice = createSlice({
         state.status = "succeeded";
       })
       .addCase(createUser.fulfilled, (state, action) => {
-        state.users.push(action.payload);
+        if (Array.isArray(state.users)) {
+          state.users.push(action.payload);
+        } else {
+          state.users = [action.payload];
+        }
         state.status = "succeeded";
       })
       .addCase(deleteUser.fulfilled, (state, action) => {
