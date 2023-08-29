@@ -10,10 +10,12 @@ const AddCarPage = () => {
     color: '',
     plate_no: '',
     price: '',
+    photo:'',
     user_id:'',
   });
   const dispatch = useDispatch();
   const router = useRouter();
+  const colorOptions = ["Black", "Blue", "Brown", "Gold", "Green", "Pink", "Purple", "Red", "Silver", "White", "Yellow"];
 
   useEffect(() => {
     // Fetch user_id from localStorage and update carData
@@ -35,6 +37,7 @@ const AddCarPage = () => {
       color: '',
       plate_no: '',
       price: '',
+      photo: '',
       user_id: carData.user_id, 
     });
     router.push('/Cars');
@@ -81,14 +84,34 @@ const AddCarPage = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="color" className="block text-gray-700 font-semibold mb-2">
-            Color
+        <label htmlFor="color" className="block text-gray-700 font-semibold mb-2">
+          Color
+        </label>
+        <select
+          id="color"
+          name="color"
+          value={carData.color}
+          onChange={handleInputChange}
+          className="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
+          required
+        >
+          <option value="">Select a color</option>
+          {colorOptions.map((color) => (
+            <option key={color} value={color}>
+              {color}
+            </option>
+          ))}
+        </select>
+      </div>
+        <div className="mb-4">
+          <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
+            Photo url
           </label>
           <input
             type="text"
-            id="color"
-            name="color"
-            value={carData.color}
+            id="photo"
+            name="photo"
+            value={carData.photo}
             onChange={handleInputChange}
             className="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             required
