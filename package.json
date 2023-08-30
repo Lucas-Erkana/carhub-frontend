@@ -6,7 +6,8 @@
     "dev": "next dev --port=4000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "npm install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
