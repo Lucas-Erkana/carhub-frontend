@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import { ImExit } from "react-icons/im";
 import { useRouter } from "next/navigation";
+import Image from 'next/image';
 
 import { clearUser } from "../redux/features/usersSlice";
 
@@ -39,7 +40,7 @@ const Navbar = () => {
     >
       <div className="max-w-6xl h-16 mx-auto flex justify-between items-center">
         <Link href="/" className="text-white text-2xl font-semibold ml-4">
-          Logo
+        <Image src="/logo.svg" alt="Logo" width={120} height={60} />
         </Link>
         <div
           className={`hidden md:flex space-x-4 ${
